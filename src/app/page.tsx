@@ -1,14 +1,23 @@
-import Image from "next/image";
+import { AppBar } from "@/components/app-bar";
+import { NewsSection } from "@/components/landing_sections/news";
+import { ContactsSection } from "@/components/landing_sections/contacts";
+import { FooterSection } from "@/components/landing_sections/footer";
+import { HeroSection } from "@/components/landing_sections/hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen w-screen items-center justify-center bg-agesci-violet">
-      <div className="text-5xl p-4 flex flex-col gap-2">
-        <Image src="/logo_agesci_white.webp" alt="Gruppo Scout Mirandola 1" width={100} height={100} />
-        <div className="font-bold text-white">Il Sito web del gruppo Scout</div>
-        <div className="font-bold text-agesci-yellow"> Mirandola 1</div>
-        <div className="font-bold text-white">è in Costruzione</div>
+    <div className="flex flex-col">
+      <AppBar />
+
+      {/* HERO */}
+      <HeroSection />
+
+      <div className="flex flex-col p-4 md:p-8">
+        <NewsSection />
+        <ContactsSection />
       </div>
+
+      <FooterSection />
     </div>
   );
 }
