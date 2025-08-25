@@ -1,7 +1,6 @@
 ---
 title: "Il nuovo sito web del Mirandola 1"
 excerpt: "Finalmente è online il nuovo sito del Mirandola 1"
-date: "2025-08-20"
 highlight: false
 ---
 

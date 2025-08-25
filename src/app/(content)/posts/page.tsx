@@ -4,6 +4,7 @@ import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { format } from "date-fns";
 
 export default function PostsPage() {
   const posts = getAllContents("posts");
@@ -26,7 +27,7 @@ export default function PostsPage() {
             <div className="flex flex-row gap-2 items-center">
               <div className="flex flex-1 flex-col gap-2">
                 <h2 className="text-lg font-bold">{post.title}</h2>
-                <small className="text-sm text-gray-500">{post.date}</small>
+                {post.date && <small className="text-sm text-gray-500">{format(post.date, "dd MMMM yyyy")}</small>}
                 <div className="text-sm text-gray-500">{post.excerpt}</div>
               </div>
               <ChevronRight />

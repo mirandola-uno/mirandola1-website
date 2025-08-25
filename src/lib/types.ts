@@ -1,7 +1,7 @@
 export type ContentMeta = {
   id: string;
   title: string;
-  date: string;
+  date: Date | undefined;
   highlight: boolean;
   excerpt: string;
 };

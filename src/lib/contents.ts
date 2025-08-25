@@ -12,25 +12,35 @@ export type ContentType = "pages" | "posts";
 
 const contentsDirectory = path.join(process.cwd(), "content");
 
+export function getContentMeta(fullPath: string): ContentMeta {
+  const id = path.basename(fullPath).replace(/\.md$/, "");
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  const matterResult = matter(fileContents);
+
+  // extract the date if exists from the id, is in format YYYY-MM-DD-title.md
+  const y = Number(id.split("-")[0]);
+  const m = Number(id.split("-")[1]);
+  const d = Number(id.split("-")[2]);
+  const date = new Date(y, m - 1, d);
+  const isValidDate = !isNaN(date.getTime());
+
+  return {
+    id,
+    title: matterResult.data.title as string,
+    date: isValidDate ? date : undefined,
+    highlight: matterResult.data.highlight as boolean,
+    excerpt: matterResult.data.excerpt as string,
+  };
+}
+
 // Get all posts metadata
 export function getAllContents(type: ContentType): ContentMeta[] {
   const fileNames = fs.readdirSync(path.join(contentsDirectory, type));
 
   return fileNames
     .map((fileName) => {
-      const id = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(contentsDirectory, type, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-
-      const matterResult = matter(fileContents);
-
-      return {
-        id,
-        title: matterResult.data.title as string,
-        date: matterResult.data.date as string,
-        highlight: matterResult.data.highlight as boolean,
-        excerpt: matterResult.data.excerpt as string,
-      };
+      return getContentMeta(path.join(contentsDirectory, type, fileName));
     })
     .sort((a, b) => {
       return b.id.localeCompare(a.id);
@@ -40,6 +50,9 @@ export function getAllContents(type: ContentType): ContentMeta[] {
 // Get one post by ID
 export async function getContentData(type: ContentType, id: string): Promise<Content> {
   const fullPath = path.join(contentsDirectory, type, `${id}.md`);
+
+  const meta = getContentMeta(fullPath);
+
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
@@ -54,11 +67,7 @@ export async function getContentData(type: ContentType, id: string): Promise<Con
   const contentHtml = processedContent.toString();
 
   return {
-    id,
-    title: matterResult.data.title as string,
-    date: matterResult.data.date as string,
-    highlight: matterResult.data.highlight as boolean,
-    excerpt: matterResult.data.excerpt as string,
     contentHtml,
+    ...meta,
   };
 }

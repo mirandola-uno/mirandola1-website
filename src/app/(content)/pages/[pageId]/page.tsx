@@ -13,7 +13,6 @@ export async function generateStaticParams() {
 export default async function PagePage({ params }: { params: Promise<{ pageId: string }> }) {
   const { pageId } = await params;
   const pageData = await getContentData("pages", pageId);
-
   return (
     <DefaultLayout
       title={pageData.title ?? ""}

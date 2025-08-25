@@ -1,7 +1,6 @@
 ---
 title: "Mirandola Al Cento"
 excerpt: "Il nuovo podcast cittadino per celebrare i cento anni di vita scout nella Diocesi di Carpi"
-date: "2025-08-25"
 highlight: false
 ---
 

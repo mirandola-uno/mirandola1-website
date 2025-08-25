@@ -5,6 +5,7 @@ import { getAllContents } from "@/lib/contents";
 import { ROUTES } from "@/lib/routes";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { format } from "date-fns";
 
 export const NewsSection = () => {
   const posts = getAllContents("posts");
@@ -23,6 +24,7 @@ export const NewsSection = () => {
               )}
             >
               <div className="text-2xl font-bold">{post.title}</div>
+              {post.date && <div className="text-sm text-gray-500">{format(post.date, "dd MMMM yyyy")}</div>}
               <div className="w-16 h-2 bg-mirandola-uno-blue rounded-md" />
               <div className="flex flex-col gap-4">
                 <div

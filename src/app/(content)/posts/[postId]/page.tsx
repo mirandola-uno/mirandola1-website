@@ -1,6 +1,7 @@
 import DefaultLayout from "@/components/default-layout";
 import { getAllContents, getContentData } from "@/lib/contents";
 import { ROUTES } from "@/lib/routes";
+import { format } from "date-fns";
 
 // Generate static params for SSG
 export async function generateStaticParams() {
@@ -17,7 +18,7 @@ export default async function PostPage({ params }: { params: Promise<{ postId: s
   return (
     <DefaultLayout
       title={postData.title ?? ""}
-      subtitle={postData.date ?? ""}
+      subtitle={postData.date ? format(postData.date, "dd MMMM yyyy") : ""}
       breadcrumb={[
         { label: "Home", href: ROUTES.HOME },
         { label: "Posts", href: ROUTES.POSTS },
