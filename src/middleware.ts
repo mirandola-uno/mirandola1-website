@@ -1,16 +1,26 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { ROUTES } from "./lib/routes";
 
 export function middleware(request: NextRequest) {
-  // Check if work in progress mode is enabled
-  if (process.env.IS_WORKING_IN_PROGRESS === "true") {
+  const isWorkInProgress = process.env.IS_WORKING_IN_PROGRESS === "true";
+  const isWorkInProgressPage = request.nextUrl.pathname === ROUTES.WORK_IN_PROGRESS;
+
+  // If work in progress mode is enabled
+  if (isWorkInProgress) {
     // If we're already on the work-in-progress page, don't redirect
-    if (request.nextUrl.pathname === "/work-in-progress") {
+    if (isWorkInProgressPage) {
       return NextResponse.next();
     }
 
     // Redirect all requests to the work-in-progress page
-    return NextResponse.redirect(new URL("/work-in-progress", request.url));
+    return NextResponse.redirect(new URL(ROUTES.WORK_IN_PROGRESS, request.url));
+  }
+
+  // If work in progress mode is disabled and user is on work-in-progress page
+  if (!isWorkInProgress && isWorkInProgressPage) {
+    // Redirect to the root page
+    return NextResponse.redirect(new URL(ROUTES.HOME, request.url));
   }
 
   // If work in progress is not enabled, continue with normal flow
