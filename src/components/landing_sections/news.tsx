@@ -1,54 +1,48 @@
 import Link from "next/link";
 import { LandingSection } from "../landing-section";
-import { NewsCard } from "../news-card";
 import { buttonVariants } from "../ui/button";
+import { getAllContents } from "@/lib/contents";
+import { ROUTES } from "@/lib/routes";
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const NewsSection = () => {
+  const posts = getAllContents("posts");
+
   return (
     <LandingSection title="News" id="news">
-      <div className="flex flex-col md:flex-row gap-4">
-        {/* iscrizioni */}
-        <NewsCard title="Iscrizioni">
-          <div className="flex flex-col gap-2">
-            <div className="">
-              Le iscrizioni per il nuovo anno scout AGESCI si aprono il{" "}
-              <span className="font-bold">1° settembre alle ore 9.00</span>. Se volete iscrivervi o iscrivere i vostri
-              figli al <span className="font-bold">Gruppo Scout AGESCI Mirandola 1</span>, all&apos;apertura delle
-              iscrizioni, dovete compilare il modulo online per la RICHIESTA ISCRIZIONE entro il 15 settembre;
-              <br />
-              <br />
-              Verrete contattati dai capi dopo tale data. Il Modulo è unico per entrambi i gruppi scout di Mirandola,
-              Mirandola 1 e Mirandola 2, in fase di compilazione è possibile inserire una preferenza.
-              <br />
-              <br />
-              <span className="font-bold">
-                Per iscriversi, è necessario compilare il modulo di iscrizione che trovate a questo link
-              </span>
-            </div>
-            <Link href="https://forms.gle/yrEkT8KrzJHrt9C8A" target="_blank" className={buttonVariants()}>
-              ISCRIZIONI 2025-2026
-            </Link>
-          </div>
-        </NewsCard>
-
-        {/* iscrizioni */}
-        <NewsCard title="Mirandola al Cento">
-          <div className="flex flex-col gap-2">
-            <div className="">
-              Cent&apos;anni fa, a Mirandola, venivano pronunciate le prime Promesse nella Diocesi di Carpi. Per
-              celebrare questo importante anniversario, il nostro gruppo, insieme al gruppo Mirandola 2 ha realizzato un
-              podcast per ricordare e raccontare la storia di questi (primi) 100 anni di vita scout. &quot;Mirandola Al
-              Cento&quot; esce ogni giovedì a partire dal 1° maggio 2025 e sarà disponibile su Spotify.
-            </div>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
+          {posts.map((post) => (
             <Link
-              href="https://open.spotify.com/show/6ntsD9KzQZbKxtClCW2hha?si=50fe155625194aed"
-              target="_blank"
-              className={buttonVariants()}
+              key={post.id}
+              href={ROUTES.POSTS_ID(post.id)}
+              className={cn(
+                "border border-md rounded-lg p-4 w-full md:w-md flex flex-col gap-2 shadow-md hover:shadow-2xl",
+                post.highlight && "border-mirandola-uno-yellow border-4"
+              )}
             >
-              Mirandola al Cento
+              <div className="text-2xl font-bold">{post.title}</div>
+              <div className="w-16 h-2 bg-mirandola-uno-blue rounded-md" />
+              <div className="flex flex-col gap-4">
+                <div
+                  className="prose prose-md dark:prose-invert"
+                  dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }}
+                />
+                <div className="flex justify-end">
+                  <Link href={ROUTES.POSTS_ID(post.id)} className={buttonVariants({ variant: "default" })}>
+                    Leggi tutto <ChevronRight />
+                  </Link>
+                </div>
+              </div>
             </Link>
-          </div>
-        </NewsCard>
+          ))}
+        </div>
+        <div className="flex justify-start">
+          <Link href={ROUTES.POSTS} className={buttonVariants({ variant: "outline" })}>
+            Tutte le news <ChevronRight />
+          </Link>
+        </div>
       </div>
     </LandingSection>
   );

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ROUTES } from "@/lib/routes";
 
 export const FooterSection = () => {
   return (
@@ -15,6 +17,9 @@ export const FooterSection = () => {
         <div>C.F. / P.IVA 91027610368</div>
         <div>Via Posta, 55 - 41037 Mirandola (MO)</div>
         <div>Sede Legale: Via Cavour, 2 - 41037 Mirandola (MO)</div>
+        <Link className="text-muted-foreground" href={ROUTES.PAGES_ID("privacy-policy")}>
+          Privacy Policy
+        </Link>
         <div className="text-muted-foreground">© {new Date().getFullYear()} - Tutti i diritti riservati</div>
       </div>
 

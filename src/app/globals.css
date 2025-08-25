@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -56,6 +57,9 @@
   --color-agesci-yellow: var(--agesci-yellow);
   --color-agesci-green: var(--agesci-green);
   --color-agesci-red: var(--agesci-red);
+
+  --color-mirandola-uno-blue: var(--mirandola-uno-blue);
+  --color-mirandola-uno-yellow: var(--mirandola-uno-yellow);
 }
 
 :root {
@@ -96,6 +100,9 @@
   --agesci-yellow: #fdc500;
   --agesci-green: #188d37;
   --agesci-red: #da1919;
+
+  --mirandola-uno-blue: #0069d1;
+  --mirandola-uno-yellow: var(--agesci-yellow);
 }
 
 .dark {
@@ -133,6 +140,11 @@
 
   --agesci-violet: #462678;
   --agesci-yellow: #fdc500;
+  --agesci-green: #188d37;
+  --agesci-red: #da1919;
+
+  --mirandola-uno-blue: #0069d1;
+  --mirandola-uno-yellow: var(--agesci-yellow);
 }
 
 @layer base {

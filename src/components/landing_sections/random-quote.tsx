@@ -85,8 +85,8 @@ export const RandomQuoteSection = () => {
   const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="flex flex-col gap-2 border border-border rounded-md p-4 bg-gray-100">
+    <div className="w-full flex items-center justify-center bg-gray-100 border border-border rounded-md">
+      <div className="flex flex-col gap-2  p-4 ">
         <div className="font-delius">{randomQuote.quote}</div>
         <div className="text-sm text-muted-foreground font-bold text-right">{randomQuote.author}</div>
       </div>

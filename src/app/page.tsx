@@ -13,9 +13,11 @@ export default function Home() {
       {/* HERO */}
       <HeroSection />
 
-      <div className="flex flex-col p-4 md:p-8">
-        <RandomQuoteSection />
+      <div className="flex flex-col gap-16 p-4 md:p-8">
         <NewsSection />
+
+        <RandomQuoteSection />
+
         <ContactsSection />
       </div>
 

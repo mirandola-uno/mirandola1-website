@@ -27,7 +27,7 @@ interface SocialItem {
 const MENU = [
   {
     label: "News",
-    href: "#news",
+    href: ROUTES.POSTS,
   },
   {
     label: "Contatti",
@@ -52,71 +52,75 @@ export const AppBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-agesci-violet flex flex-row items-center p-4 gap-2 text-white">
-      <Image
-        src="/logo_agesci_white.webp"
-        className="w-10 h-10 md:w-20 md:h-20"
-        alt="Gruppo Scout Mirandola 1"
-        width={50}
-        height={50}
-      />
+    <div className="flex flex-col">
+      <div className="bg-agesci-violet flex flex-row items-center p-4 gap-2 text-white">
+        <Image
+          src="/logo_agesci_white.webp"
+          className="w-10 h-10 md:w-20 md:h-20"
+          alt="Gruppo Scout Mirandola 1"
+          width={50}
+          height={50}
+        />
 
-      <Link href={ROUTES.HOME} className="text-sm md:text-2xl font-bold">
-        Gruppo Scout Mirandola 1
-      </Link>
+        <Link href={ROUTES.HOME} className="text-sm md:text-2xl font-bold">
+          Gruppo Scout Mirandola 1
+        </Link>
 
-      <div className="flex-1" />
+        <div className="flex-1" />
 
-      <div className="flex flex-row gap-2 items-center text-white">
-        {MENU.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            data-active={item.href === pathname}
-            className={cn(buttonVariants({ variant: "ghost" }), "hidden md:block data-[active=true]:bg-muted/20")}
-          >
-            {item.label}
-          </Link>
-        ))}
-
-        {SOCIALS.map((social) => {
-          const IconComponent = social.icon;
-          return (
+        <div className="flex flex-row gap-2 items-center text-white">
+          {MENU.map((item) => (
             <Link
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              className={buttonVariants({ variant: "ghost" })}
+              key={item.label}
+              href={item.href}
+              data-active={item.href === pathname}
+              className={cn(buttonVariants({ variant: "ghost" }), "hidden md:block data-[active=true]:bg-muted/20")}
             >
-              <IconComponent size={20} />
+              {item.label}
             </Link>
-          );
-        })}
+          ))}
 
-        <div className="block md:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button variant="ghost" size="icon">
-                <MoreVertical />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>MENU</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+          {SOCIALS.map((social) => {
+            const IconComponent = social.icon;
+            return (
+              <Link
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                className={buttonVariants({ variant: "ghost" })}
+              >
+                <IconComponent size={20} />
+              </Link>
+            );
+          })}
 
-              {MENU.map((item) => (
-                <DropdownMenuItem
-                  key={item.label}
-                  data-active={item.href === pathname}
-                  className="data-[active=true]:bg-muted/80"
-                >
-                  <Link href={item.href}>{item.label}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="block md:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Button variant="ghost" size="icon">
+                  <MoreVertical />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>MENU</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+
+                {MENU.map((item) => (
+                  <DropdownMenuItem
+                    key={item.label}
+                    data-active={item.href === pathname}
+                    className="data-[active=true]:bg-muted/80"
+                  >
+                    <Link href={item.href}>{item.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
+      <div className="h-1 w-full bg-mirandola-uno-blue" />
+      <div className="h-1 w-full bg-mirandola-uno-yellow" />
     </div>
   );
 };
