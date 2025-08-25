@@ -2,12 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { InstagramIcon, FacebookIcon } from "./icons";
 import { ComponentType } from "react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/routes";
 import { usePathname } from "next/navigation";
+import { MoreVertical } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 interface SocialItem {
   label: string;
@@ -44,9 +53,15 @@ export const AppBar = () => {
 
   return (
     <div className="bg-agesci-violet flex flex-row items-center p-4 gap-2 text-white">
-      <Image src="/logo_agesci_white.webp" alt="Gruppo Scout Mirandola 1" width={50} height={50} />
+      <Image
+        src="/logo_agesci_white.webp"
+        className="w-10 h-10 md:w-20 md:h-20"
+        alt="Gruppo Scout Mirandola 1"
+        width={50}
+        height={50}
+      />
 
-      <Link href={ROUTES.HOME} className="text-lg md:text-2xl font-bold">
+      <Link href={ROUTES.HOME} className="text-sm md:text-2xl font-bold">
         Gruppo Scout Mirandola 1
       </Link>
 
@@ -63,6 +78,7 @@ export const AppBar = () => {
             {item.label}
           </Link>
         ))}
+
         {SOCIALS.map((social) => {
           const IconComponent = social.icon;
           return (
@@ -76,6 +92,30 @@ export const AppBar = () => {
             </Link>
           );
         })}
+
+        <div className="block md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="ghost" size="icon">
+                <MoreVertical />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>MENU</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+
+              {MENU.map((item) => (
+                <DropdownMenuItem
+                  key={item.label}
+                  data-active={item.href === pathname}
+                  className="data-[active=true]:bg-muted/80"
+                >
+                  <Link href={item.href}>{item.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </div>
   );

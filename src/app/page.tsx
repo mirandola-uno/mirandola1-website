@@ -1,4 +1,5 @@
 import { AppBar } from "@/components/app-bar";
+import { RandomQuoteSection } from "@/components/landing_sections/random-quote";
 import { NewsSection } from "@/components/landing_sections/news";
 import { ContactsSection } from "@/components/landing_sections/contacts";
 import { FooterSection } from "@/components/landing_sections/footer";
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
 
       <div className="flex flex-col p-4 md:p-8">
+        <RandomQuoteSection />
         <NewsSection />
         <ContactsSection />
       </div>

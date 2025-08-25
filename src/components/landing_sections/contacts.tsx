@@ -10,7 +10,9 @@ export const ContactsSection = () => {
         {/* mail */}
         <div className="flex gap-2 items-center">
           <Mail />
-          <div className="text-lg">mirandolauno@gmail.com</div>
+          <Link href="mailto:mirandolauno@gmail.com" className="text-lg underline">
+            mirandolauno@gmail.com
+          </Link>
         </div>
 
         {/* address */}
