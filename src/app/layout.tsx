@@ -18,18 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
-        {/* For Safari on iOS */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-        {/* For Safari top bar (iOS 15+) */}
-        <meta name="theme-color" content="#462678" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#462678" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#462678" media="(prefers-color-scheme: no-preference)" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Gruppo Scout Mirandola 1" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#462678" />
       </Head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
