@@ -1,3 +1,5 @@
+"use client";
+
 const QUOTES = [
   {
     quote: "Lascia il mondo un po’ migliore di come l’hai trovato.",

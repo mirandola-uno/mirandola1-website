@@ -8,7 +8,16 @@ import { ComponentType } from "react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/routes";
 import { usePathname } from "next/navigation";
-import { ChevronDown, FileBadge, Link as LinkIcon, MoreVertical, Newspaper, Users } from "lucide-react";
+import {
+  ChevronDown,
+  FileBadge,
+  Footprints,
+  Leaf,
+  Link as LinkIcon,
+  MoreVertical,
+  Newspaper,
+  Users,
+} from "lucide-react";
 import { Mail } from "lucide-react";
 import {
   DropdownMenu,
@@ -50,6 +59,17 @@ const MENU: MenuItem[] = [
         label: "Contatti",
         icon: Mail,
         href: ROUTES.CONTACT,
+      },
+    ],
+  },
+  {
+    label: "Lupetti e Coccinelle",
+    icon: Leaf,
+    values: [
+      {
+        label: "Piccole Orme",
+        href: ROUTES.PAGES_ID("piccole-orme"),
+        icon: Footprints,
       },
     ],
   },
