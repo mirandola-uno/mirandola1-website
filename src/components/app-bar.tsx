@@ -10,6 +10,7 @@ import { ROUTES } from "@/lib/routes";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
+  ChevronRight,
   FileBadge,
   Footprints,
   Leaf,
@@ -139,7 +140,7 @@ export const AppBar = () => {
                       {item.icon && <item.icon className="size-4" />} {item.label} <ChevronDown />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="start">
+                  <DropdownMenuContent align="start">
                     {item.values.map((value) => (
                       <DropdownMenuItem key={value.label} className="cursor-pointer">
                         <Link href={value.href ?? ""} className="flex flex-row gap-2 items-center">
@@ -188,11 +189,11 @@ export const AppBar = () => {
                   <MoreVertical />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className="min-w-56" align="start">
                 <DropdownMenuLabel>MENU</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                {MENU.map((item) =>
+                {MENU.map((item, i) =>
                   item.values ? (
                     <>
                       <DropdownMenuLabel className="flex flex-row gap-2 items-center">
@@ -206,12 +207,12 @@ export const AppBar = () => {
                           data-active={value.href === pathname}
                           className="data-[active=true]:bg-muted/80"
                         >
-                          <Link href={value.href ?? ""}>
-                            {value.icon && <value.icon className="size-4" />} {value.label}
+                          <Link href={value.href ?? ""} className="flex flex-row gap-2 items-center">
+                            {value.icon && <value.icon className="size-4" />} {value.label} <ChevronRight />
                           </Link>
                         </DropdownMenuItem>
                       ))}
-                      <DropdownMenuSeparator />
+                      {i !== MENU.length - 1 && <DropdownMenuSeparator />}
                     </>
                   ) : (
                     <>
@@ -221,9 +222,10 @@ export const AppBar = () => {
                         className="data-[active=true]:bg-muted/80"
                       >
                         <Link href={item.href ?? ""} className="flex flex-row gap-2 items-center">
-                          {item.icon && <item.icon className="size-4" />} {item.label}
+                          {item.icon && <item.icon className="size-4" />} {item.label} <ChevronRight />
                         </Link>
                       </DropdownMenuItem>
+                      {i !== MENU.length - 1 && <DropdownMenuSeparator />}
                     </>
                   )
                 )}
