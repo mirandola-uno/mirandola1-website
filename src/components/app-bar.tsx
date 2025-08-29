@@ -38,6 +38,11 @@ interface MenuItem {
 
 const MENU: MenuItem[] = [
   {
+    label: "News",
+    icon: Newspaper,
+    href: ROUTES.POSTS,
+  },
+  {
     label: "Chi Siamo",
     icon: Users,
     values: [
@@ -73,11 +78,6 @@ const MENU: MenuItem[] = [
         icon: Footprints,
       },
     ],
-  },
-  {
-    label: "News",
-    icon: Newspaper,
-    href: ROUTES.POSTS,
   },
   {
     label: "Materiale e Link",
