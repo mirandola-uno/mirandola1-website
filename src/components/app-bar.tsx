@@ -8,7 +8,8 @@ import { ComponentType } from "react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/routes";
 import { usePathname } from "next/navigation";
-import { MoreVertical } from "lucide-react";
+import { ChevronDown, FileBadge, Link as LinkIcon, MoreVertical, Newspaper, Users } from "lucide-react";
+import { Mail } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,24 +19,63 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-interface SocialItem {
+interface MenuItem {
   label: string;
-  href: string;
-  icon: ComponentType<{ className?: string; size?: number }>;
+  href?: string;
+  icon?: ComponentType<{ className?: string; size?: number }>;
+  values?: MenuItem[];
 }
 
-const MENU = [
+const MENU: MenuItem[] = [
+  {
+    label: "Chi Siamo",
+    icon: Users,
+    values: [
+      {
+        label: "Comunità Capi",
+        href: ROUTES.CHI_SIAMO.COCA,
+        icon: Users,
+      },
+      {
+        label: "Progetto Educativo",
+        href: ROUTES.CHI_SIAMO.PEG,
+        icon: FileBadge,
+      },
+      {
+        label: "Patto Associativo",
+        href: ROUTES.PAGES_ID("patto-associativo"),
+        icon: FileBadge,
+      },
+      {
+        label: "Contatti",
+        icon: Mail,
+        href: ROUTES.CONTACT,
+      },
+    ],
+  },
   {
     label: "News",
+    icon: Newspaper,
     href: ROUTES.POSTS,
   },
   {
-    label: "Contatti",
-    href: ROUTES.CONTACT,
+    label: "Materiale e Link",
+    icon: LinkIcon,
+    values: [
+      {
+        label: "Area Download",
+        icon: FileBadge,
+        href: ROUTES.PAGES_ID("area-download"),
+      },
+    ],
   },
 ];
 
-const SOCIALS: SocialItem[] = [
+const SOCIALS: {
+  label: string;
+  href: string;
+  icon: ComponentType<{ className?: string; size?: number }>;
+}[] = [
   {
     label: "Instagram",
     href: "https://www.instagram.com/agesci.mirandola1/",
@@ -56,7 +96,7 @@ export const AppBar = () => {
       <div className="bg-agesci-violet flex flex-row items-center p-4 gap-2 text-white">
         <Image
           src="/logo_agesci_white.webp"
-          className="w-10 h-10 md:w-20 md:h-20"
+          className="size-10"
           alt="Gruppo Scout Mirandola 1"
           width={50}
           height={50}
@@ -68,17 +108,43 @@ export const AppBar = () => {
 
         <div className="flex-1" />
 
-        <div className="flex flex-row gap-2 items-center text-white">
-          {MENU.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              data-active={item.href === pathname}
-              className={cn(buttonVariants({ variant: "ghost" }), "hidden md:block data-[active=true]:bg-muted/20")}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="flex flex-row gap-2 items-center">
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex flex-row gap-2 items-center">
+            {MENU.map((item) =>
+              item.values ? (
+                <DropdownMenu key={item.label}>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost">
+                      {item.icon && <item.icon className="size-4" />} {item.label} <ChevronDown />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="start">
+                    {item.values.map((value) => (
+                      <DropdownMenuItem key={value.label} className="cursor-pointer">
+                        <Link href={value.href ?? ""} className="flex flex-row gap-2 items-center">
+                          {value.icon && <value.icon className="size-4" />} {value.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href ?? ""}
+                  data-active={item.href === pathname}
+                  className={cn(
+                    buttonVariants({ variant: "ghost" }),
+                    "data-[active=true]:bg-muted/20 flex flex-row gap-2 items-center"
+                  )}
+                >
+                  {item.icon && <item.icon className="w-4 h-4" />}
+                  {item.label}
+                </Link>
+              )
+            )}
+          </div>
 
           {SOCIALS.map((social) => {
             const IconComponent = social.icon;
@@ -94,6 +160,7 @@ export const AppBar = () => {
             );
           })}
 
+          {/* MOBILE MENU */}
           <div className="block md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger>
@@ -105,15 +172,41 @@ export const AppBar = () => {
                 <DropdownMenuLabel>MENU</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
-                {MENU.map((item) => (
-                  <DropdownMenuItem
-                    key={item.label}
-                    data-active={item.href === pathname}
-                    className="data-[active=true]:bg-muted/80"
-                  >
-                    <Link href={item.href}>{item.label}</Link>
-                  </DropdownMenuItem>
-                ))}
+                {MENU.map((item) =>
+                  item.values ? (
+                    <>
+                      <DropdownMenuLabel className="flex flex-row gap-2 items-center">
+                        {item.icon && <item.icon className="size-4" />}
+                        {item.label}
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      {item.values.map((value) => (
+                        <DropdownMenuItem
+                          key={value.label}
+                          data-active={value.href === pathname}
+                          className="data-[active=true]:bg-muted/80"
+                        >
+                          <Link href={value.href ?? ""}>
+                            {value.icon && <value.icon className="size-4" />} {value.label}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                      <DropdownMenuSeparator />
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem
+                        key={item.label}
+                        data-active={item.href === pathname}
+                        className="data-[active=true]:bg-muted/80"
+                      >
+                        <Link href={item.href ?? ""} className="flex flex-row gap-2 items-center">
+                          {item.icon && <item.icon className="size-4" />} {item.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    </>
+                  )
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

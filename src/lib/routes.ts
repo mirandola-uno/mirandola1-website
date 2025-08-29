@@ -3,6 +3,11 @@ export const ROUTES = {
   WORK_IN_PROGRESS: "/work-in-progress",
   CONTACT: "/contact",
 
+  CHI_SIAMO: {
+    COCA: "/chi-siamo/coca",
+    PEG: "/pages/peg",
+  },
+
   POSTS: "/posts",
   POSTS_ID: (postId: string) => `/posts/${postId}`,
 

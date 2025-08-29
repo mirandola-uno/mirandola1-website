@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/default-layout";
-import { getAllContents } from "@/lib/contents";
+import { getAllPostsMeta } from "@/lib/contents/posts";
 import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 
 export default function PostsPage() {
-  const posts = getAllContents("posts");
+  const posts = getAllPostsMeta();
 
   return (
     <DefaultLayout

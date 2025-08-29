@@ -6,13 +6,11 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
-import { Content, ContentMeta } from "./types";
+import { Post, PostMeta } from "../types";
 
-export type ContentType = "pages" | "posts";
+const contentsDirectory = path.join(process.cwd(), "content", "posts");
 
-const contentsDirectory = path.join(process.cwd(), "content");
-
-export function getContentMeta(fullPath: string): ContentMeta {
+export function getPostMeta(fullPath: string): PostMeta {
   const id = path.basename(fullPath).replace(/\.md$/, "");
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -35,12 +33,12 @@ export function getContentMeta(fullPath: string): ContentMeta {
 }
 
 // Get all posts metadata
-export function getAllContents(type: ContentType): ContentMeta[] {
-  const fileNames = fs.readdirSync(path.join(contentsDirectory, type));
+export function getAllPostsMeta(): PostMeta[] {
+  const fileNames = fs.readdirSync(contentsDirectory);
 
   return fileNames
     .map((fileName) => {
-      return getContentMeta(path.join(contentsDirectory, type, fileName));
+      return getPostMeta(path.join(contentsDirectory, fileName));
     })
     .sort((a, b) => {
       return b.id.localeCompare(a.id);
@@ -48,10 +46,10 @@ export function getAllContents(type: ContentType): ContentMeta[] {
 }
 
 // Get one post by ID
-export async function getContentData(type: ContentType, id: string): Promise<Content> {
-  const fullPath = path.join(contentsDirectory, type, `${id}.md`);
+export async function getPostData(id: string): Promise<Post> {
+  const fullPath = path.join(contentsDirectory, `${id}.md`);
 
-  const meta = getContentMeta(fullPath);
+  const meta = getPostMeta(fullPath);
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
 

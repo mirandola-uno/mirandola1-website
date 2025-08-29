@@ -1,11 +1,11 @@
 import DefaultLayout from "@/components/default-layout";
-import { getAllContents, getContentData } from "@/lib/contents";
+import { getAllPostsMeta, getPostData } from "@/lib/contents/posts";
 import { ROUTES } from "@/lib/routes";
 import { format } from "date-fns";
 
 // Generate static params for SSG
 export async function generateStaticParams() {
-  const posts = getAllContents("posts");
+  const posts = getAllPostsMeta();
   return posts.map((post) => ({
     postId: post.id,
   }));
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 export default async function PostPage({ params }: { params: Promise<{ postId: string }> }) {
   const { postId } = await params;
-  const postData = await getContentData("posts", postId);
+  const postData = await getPostData(postId);
 
   return (
     <DefaultLayout

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { LandingSection } from "../landing-section";
 import { buttonVariants } from "../ui/button";
-import { getAllContents } from "@/lib/contents";
+import { getAllPostsMeta } from "@/lib/contents/posts";
 import { ROUTES } from "@/lib/routes";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 
 export const NewsSection = () => {
-  const posts = getAllContents("posts");
+  const posts = getAllPostsMeta();
 
   return (
     <LandingSection title="News" id="news">

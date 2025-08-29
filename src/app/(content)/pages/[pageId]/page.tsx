@@ -1,10 +1,10 @@
 import DefaultLayout from "@/components/default-layout";
-import { getAllContents, getContentData } from "@/lib/contents";
+import { getAllPagesMeta, getPageData } from "@/lib/contents/pages";
 import { ROUTES } from "@/lib/routes";
 
 // Generate static params for SSG
 export async function generateStaticParams() {
-  const pages = getAllContents("pages");
+  const pages = getAllPagesMeta();
   return pages.map((page) => ({
     pageId: page.id,
   }));
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 export default async function PagePage({ params }: { params: Promise<{ pageId: string }> }) {
   const { pageId } = await params;
-  const pageData = await getContentData("pages", pageId);
+  const pageData = await getPageData(pageId);
   return (
     <DefaultLayout
       title={pageData.title ?? ""}

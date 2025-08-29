@@ -1,4 +1,4 @@
-export type ContentMeta = {
+export type PostMeta = {
   id: string;
   title: string;
   date: Date | undefined;
@@ -6,6 +6,15 @@ export type ContentMeta = {
   excerpt: string;
 };
 
-export type Content = ContentMeta & {
+export type Post = PostMeta & {
+  contentHtml: string;
+};
+
+export type PageMeta = {
+  id: string;
+  title: string;
+};
+
+export type Page = PageMeta & {
   contentHtml: string;
 };

@@ -1,0 +1,318 @@
+[
+  {
+    "id": "berto-marcello",
+    "CodiceSocio": 712753,
+    "Nome": "Marcello",
+    "Cognome": "Berto",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Capo Gruppo"
+  },
+  {
+    "id": "paolini-annamaria",
+    "CodiceSocio": 913382,
+    "Nome": "Annamaria",
+    "Cognome": "Paolini",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Capo Gruppo"
+  },
+  {
+    "id": "cavazzuti-francesco",
+    "CodiceSocio": 1562519,
+    "Nome": "Francesco",
+    "Cognome": "Cavazzuti",
+    "Sesso": "M",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Assistente Ecclesiastico"
+  },
+  {
+    "id": "zerbini-claudio",
+    "CodiceSocio": 152482,
+    "Nome": "Claudio",
+    "Cognome": "Zerbini",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Pattuglia Animazione CoCa"
+  },
+  {
+    "id": "tagliavini-giorgio",
+    "CodiceSocio": 0,
+    "Nome": "Giorgio",
+    "Cognome": "Tagliavini",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Pattuglia Animazione CoCa"
+  },
+  {
+    "id": "morini-andrea",
+    "CodiceSocio": 4,
+    "Nome": "Adrea",
+    "Cognome": "Morini",
+    "Sesso": "M",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Pattuglia Animazione CoCa"
+  },
+  {
+    "id": "fernandez-mary-roselet",
+    "CodiceSocio": 1354295,
+    "Nome": "Mary roselet",
+    "Cognome": "Fernandez",
+    "Sesso": "F",
+    "unita": "coca",
+    "ruolo": "Assistente Spirituale L/C",
+    "branca": "coca"
+  },
+  {
+    "id": "gavioli-francesco",
+    "CodiceSocio": 1183491,
+    "Nome": "Francesco",
+    "Cognome": "Gavioli",
+    "Sesso": "M",
+    "unita": "Lupetti",
+    "ruolo": "Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "razzaboni-tommaso",
+    "CodiceSocio": 1469946,
+    "Nome": "Tommaso",
+    "Cognome": "Razzaboni",
+    "Sesso": "M",
+    "unita": "Lupetti",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "cavicchioli-giacomo",
+    "CodiceSocio": 913367,
+    "Nome": "Giacomo",
+    "Cognome": "Cavicchioli",
+    "Sesso": "M",
+    "unita": "Lupetti",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "sgarbi-marta",
+    "CodiceSocio": 1250571,
+    "Nome": "Marta",
+    "Cognome": "Sgarbi",
+    "Sesso": "F",
+    "unita": "Lupetti",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "CodiceSocio": 1,
+    "Nome": "Giulia",
+    "Cognome": "Luppi",
+    "Sesso": "F",
+    "unita": "Lupetti",
+    "ruolo": "Aiuto Capo Unità",
+    "id": "luppi-giulia-jr",
+    "branca": "lc"
+  },
+  {
+    "id": "baraldi-lucrezia",
+    "CodiceSocio": 1183475,
+    "Nome": "Lucrezia",
+    "Cognome": "Baraldi",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "luppi-giulia",
+    "CodiceSocio": 992362,
+    "Nome": "Giulia",
+    "Cognome": "Luppi",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "cavicchioli-ester",
+    "CodiceSocio": 1153894,
+    "Nome": "Ester",
+    "Cognome": "Cavicchioli",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "bellesia-alice",
+    "CodiceSocio": 1183478,
+    "Nome": "Alice",
+    "Cognome": "Bellesia",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "tonengo-olivia",
+    "CodiceSocio": 1217159,
+    "Nome": "Olivia",
+    "Cognome": "Tonengo",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "bresciani-gemma",
+    "CodiceSocio": 2,
+    "Nome": "Gemma",
+    "Cognome": "Bresciani",
+    "Sesso": "F",
+    "unita": "Coccinelle",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "lc"
+  },
+  {
+    "id": "stefanini-piero",
+    "CodiceSocio": 1183499,
+    "Nome": "Piero",
+    "Cognome": "Stefanini",
+    "Sesso": "M",
+    "unita": "Reparto Tramontana",
+    "ruolo": "Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "forapani-anna",
+    "CodiceSocio": 1183488,
+    "Nome": "Anna",
+    "Cognome": "Forapani",
+    "Sesso": "F",
+    "unita": "Reparto Tramontana",
+    "ruolo": "Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "cavicchioli-maria-vittoria",
+    "CodiceSocio": 1108789,
+    "Nome": "Maria vittoria",
+    "Cognome": "Cavicchioli",
+    "Sesso": "F",
+    "unita": "Reparto Tramontana",
+    "ruolo": "Aiuto Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "menotti-pietro",
+    "CodiceSocio": 5,
+    "Nome": "Pietro",
+    "Cognome": "Menotti",
+    "Sesso": "M",
+    "unita": "Reparto Tramontana",
+    "ruolo": "Aiuto Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "golinelli-giacomo",
+    "CodiceSocio": 1250560,
+    "Nome": "Giacomo",
+    "Cognome": "Golinelli",
+    "Sesso": "M",
+    "unita": "Reparto Aquile Randagie",
+    "ruolo": "Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "cappello-anita",
+    "CodiceSocio": 1325386,
+    "Nome": "Anita",
+    "Cognome": "Cappello",
+    "Sesso": "F",
+    "unita": "Reparto Aquile Randagie",
+    "ruolo": "Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "puorro-antonio",
+    "CodiceSocio": 1045948,
+    "Nome": "Antonio",
+    "Cognome": "Puorro",
+    "Sesso": "M",
+    "unita": "Reparto Aquile Randagie",
+    "ruolo": "Aiuto Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "morselli-alessandro",
+    "CodiceSocio": 6,
+    "Nome": "Alessandro",
+    "Cognome": "Morselli",
+    "Sesso": "M",
+    "unita": "Reparto Aquile Randagie",
+    "ruolo": "Aiuto Capo Reparto",
+    "branca": "eg"
+  },
+  {
+    "id": "salici-tommaso",
+    "CodiceSocio": 1077738,
+    "Nome": "Tommaso",
+    "Cognome": "Salici",
+    "Sesso": "M",
+    "unita": "Clan Fuoco",
+    "ruolo": "Maestro dei Novizi",
+    "branca": "rs"
+  },
+  {
+    "id": "baraldi-eleonora",
+    "CodiceSocio": 1076307,
+    "Nome": "Eleonora",
+    "Cognome": "Baraldi",
+    "Sesso": "F",
+    "unita": "Clan Fuoco",
+    "ruolo": "Maestra dei Novizi",
+    "branca": "rs"
+  },
+  {
+    "id": "cavicchioli-davide",
+    "CodiceSocio": 913368,
+    "Nome": "Davide",
+    "Cognome": "Cavicchioli",
+    "Sesso": "M",
+    "unita": "Clan Fuoco",
+    "ruolo": "Capo Clan",
+    "branca": "rs"
+  },
+  {
+    "id": "mascherini-francesca",
+    "CodiceSocio": 1076309,
+    "Nome": "Francesca",
+    "Cognome": "Mascherini",
+    "Sesso": "F",
+    "unita": "Clan Fuoco",
+    "ruolo": "Capo Fuoco",
+    "branca": "rs"
+  },
+  {
+    "id": "cioli-puviani-pietro",
+    "CodiceSocio": 1052580,
+    "Nome": "Pietro",
+    "Cognome": "Cioli puviani",
+    "Sesso": "M",
+    "unita": "Co.Ca.",
+    "ruolo": "Pattuglia Via Posta",
+    "branca": "coca"
+  },
+  {
+    "id": "gentilini-simona",
+    "CodiceSocio": 511984,
+    "Nome": "Simona",
+    "Cognome": "Gentilini",
+    "Sesso": "F",
+    "unita": "Co.Ca.",
+    "ruolo": "Pattuglia Via Posta",
+    "branca": "coca"
+  }
+]

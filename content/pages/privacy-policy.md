@@ -1,8 +1,5 @@
 ---
 title: "Privacy Policy"
-excerpt: ""
-date: "2025-08-25"
-highlight: false
 ---
 
 ### Titolare del trattamento dei dati
