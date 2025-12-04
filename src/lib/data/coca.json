@@ -1,18 +1,18 @@
 [
   {
-    "id": "berto-marcello",
-    "CodiceSocio": 712753,
-    "Nome": "Marcello",
-    "Cognome": "Berto",
+    "id": "paolini-annamaria",
+    "CodiceSocio": 913382,
+    "Nome": "Annamaria",
+    "Cognome": "Paolini",
     "unita": "Co.Ca.",
     "branca": "coca",
     "ruolo": "Capo Gruppo"
   },
   {
-    "id": "paolini-annamaria",
-    "CodiceSocio": 913382,
-    "Nome": "Annamaria",
-    "Cognome": "Paolini",
+    "id": "tagliavini-giorgio",
+    "CodiceSocio": 0,
+    "Nome": "Giorgio",
+    "Cognome": "Tagliavini",
     "unita": "Co.Ca.",
     "branca": "coca",
     "ruolo": "Capo Gruppo"
@@ -37,15 +37,6 @@
     "ruolo": "Pattuglia Animazione CoCa"
   },
   {
-    "id": "tagliavini-giorgio",
-    "CodiceSocio": 0,
-    "Nome": "Giorgio",
-    "Cognome": "Tagliavini",
-    "unita": "Co.Ca.",
-    "branca": "coca",
-    "ruolo": "Pattuglia Animazione CoCa"
-  },
-  {
     "id": "morini-andrea",
     "CodiceSocio": 4,
     "Nome": "Adrea",
@@ -61,20 +52,11 @@
     "Nome": "Mary roselet",
     "Cognome": "Fernandez",
     "Sesso": "F",
-    "unita": "coca",
+    "unita": "Co.Ca.",
     "ruolo": "Assistente Spirituale L/C",
     "branca": "coca"
   },
-  {
-    "id": "gavioli-francesco",
-    "CodiceSocio": 1183491,
-    "Nome": "Francesco",
-    "Cognome": "Gavioli",
-    "Sesso": "M",
-    "unita": "Lupetti",
-    "ruolo": "Capo Unità",
-    "branca": "lc"
-  },
+
   {
     "id": "razzaboni-tommaso",
     "CodiceSocio": 1469946,
@@ -82,7 +64,7 @@
     "Cognome": "Razzaboni",
     "Sesso": "M",
     "unita": "Lupetti",
-    "ruolo": "Aiuto Capo Unità",
+    "ruolo": "Capo Unità",
     "branca": "lc"
   },
   {
@@ -126,26 +108,6 @@
     "branca": "lc"
   },
   {
-    "id": "luppi-giulia",
-    "CodiceSocio": 992362,
-    "Nome": "Giulia",
-    "Cognome": "Luppi",
-    "Sesso": "F",
-    "unita": "Coccinelle",
-    "ruolo": "Aiuto Capo Unità",
-    "branca": "lc"
-  },
-  {
-    "id": "cavicchioli-ester",
-    "CodiceSocio": 1153894,
-    "Nome": "Ester",
-    "Cognome": "Cavicchioli",
-    "Sesso": "F",
-    "unita": "Coccinelle",
-    "ruolo": "Aiuto Capo Unità",
-    "branca": "lc"
-  },
-  {
     "id": "bellesia-alice",
     "CodiceSocio": 1183478,
     "Nome": "Alice",
@@ -166,15 +128,16 @@
     "branca": "lc"
   },
   {
-    "id": "bresciani-gemma",
+    "id": "basso-francesca",
     "CodiceSocio": 2,
-    "Nome": "Gemma",
-    "Cognome": "Bresciani",
+    "Nome": "Francesca",
+    "Cognome": "Basso",
     "Sesso": "F",
     "unita": "Coccinelle",
     "ruolo": "Aiuto Capo Unità",
     "branca": "lc"
   },
+
   {
     "id": "stefanini-piero",
     "CodiceSocio": 1183499,
@@ -186,40 +149,41 @@
     "branca": "eg"
   },
   {
-    "id": "forapani-anna",
-    "CodiceSocio": 1183488,
-    "Nome": "Anna",
-    "Cognome": "Forapani",
+    "id": "cavicchioli-maria-vittoria",
+    "CodiceSocio": 1108789,
+    "Nome": "Maria Vittoria",
+    "Cognome": "Cavicchioli",
     "Sesso": "F",
     "unita": "Reparto Tramontana",
     "ruolo": "Capo Reparto",
     "branca": "eg"
   },
   {
-    "id": "cavicchioli-maria-vittoria",
-    "CodiceSocio": 1108789,
-    "Nome": "Maria vittoria",
-    "Cognome": "Cavicchioli",
+    "id": "bresciani-gemma",
+    "CodiceSocio": 2,
+    "Nome": "Gemma",
+    "Cognome": "Bresciani",
     "Sesso": "F",
     "unita": "Reparto Tramontana",
-    "ruolo": "Aiuto Capo Reparto",
+    "ruolo": "Aiuto Capo Unità",
     "branca": "eg"
   },
+  {
+    "id": "gallini-francesco",
+    "CodiceSocio": 3,
+    "Nome": "Francesco",
+    "Cognome": "Gallini",
+    "Sesso": "M",
+    "unita": "Reparto Tramontana",
+    "ruolo": "Aiuto Capo Unità",
+    "branca": "eg"
+  },
+
   {
     "id": "menotti-pietro",
     "CodiceSocio": 5,
     "Nome": "Pietro",
     "Cognome": "Menotti",
-    "Sesso": "M",
-    "unita": "Reparto Tramontana",
-    "ruolo": "Aiuto Capo Reparto",
-    "branca": "eg"
-  },
-  {
-    "id": "golinelli-giacomo",
-    "CodiceSocio": 1250560,
-    "Nome": "Giacomo",
-    "Cognome": "Golinelli",
     "Sesso": "M",
     "unita": "Reparto Aquile Randagie",
     "ruolo": "Capo Reparto",
@@ -236,25 +200,26 @@
     "branca": "eg"
   },
   {
-    "id": "puorro-antonio",
-    "CodiceSocio": 1045948,
-    "Nome": "Antonio",
-    "Cognome": "Puorro",
+    "id": "gavioli-francesco",
+    "CodiceSocio": 1183491,
+    "Nome": "Francesco",
+    "Cognome": "Gavioli",
     "Sesso": "M",
     "unita": "Reparto Aquile Randagie",
     "ruolo": "Aiuto Capo Reparto",
     "branca": "eg"
   },
   {
-    "id": "morselli-alessandro",
-    "CodiceSocio": 6,
-    "Nome": "Alessandro",
-    "Cognome": "Morselli",
+    "id": "cioli-puviani-pietro",
+    "CodiceSocio": 1052580,
+    "Nome": "Pietro",
+    "Cognome": "Cioli puviani",
     "Sesso": "M",
     "unita": "Reparto Aquile Randagie",
     "ruolo": "Aiuto Capo Reparto",
     "branca": "eg"
   },
+
   {
     "id": "salici-tommaso",
     "CodiceSocio": 1077738,
@@ -296,10 +261,20 @@
     "branca": "rs"
   },
   {
-    "id": "cioli-puviani-pietro",
-    "CodiceSocio": 1052580,
-    "Nome": "Pietro",
-    "Cognome": "Cioli puviani",
+    "id": "puorro-antonio",
+    "CodiceSocio": 1045948,
+    "Nome": "Antonio",
+    "Cognome": "Puorro",
+    "Sesso": "M",
+    "unita": "Clan Fuoco",
+    "ruolo": "Capo Clan",
+    "branca": "rs"
+  },
+  {
+    "id": "morselli-alessandro",
+    "CodiceSocio": 6,
+    "Nome": "Alessandro",
+    "Cognome": "Morselli",
     "Sesso": "M",
     "unita": "Co.Ca.",
     "ruolo": "Pattuglia Via Posta",
@@ -314,5 +289,15 @@
     "unita": "Co.Ca.",
     "ruolo": "Pattuglia Via Posta",
     "branca": "coca"
+  },
+  {
+    "id": "luppi-giulia",
+    "CodiceSocio": 992362,
+    "Nome": "Giulia",
+    "Cognome": "Luppi",
+    "Sesso": "F",
+    "unita": "Co.Ca.",
+    "ruolo": "IABZ L/C",
+    "branca": "lc"
   }
 ]
