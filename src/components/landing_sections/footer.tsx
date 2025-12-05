@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
+import { CreditsDialog } from "../credits-dialog";
 
 export const FooterSection = () => {
   return (
@@ -21,6 +22,7 @@ export const FooterSection = () => {
           Privacy Policy
         </Link>
         <div className="text-muted-foreground">© {new Date().getFullYear()} - Tutti i diritti riservati</div>
+        <CreditsDialog />
       </div>
 
       <div className="text-3xl font-delius text-center md:text-right">
