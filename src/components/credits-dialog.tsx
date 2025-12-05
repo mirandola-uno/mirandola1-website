@@ -16,7 +16,7 @@ export const CreditsDialog = () => {
           <DialogDescription>
             Il codice sorgente del sito web che stai leggendo è disponibile su{" "}
             <Link
-              href="https://github.com/giacomo-cc/mirandola1-website"
+              href="https://github.com/mirandola-uno/mirandola1-website"
               target="_blank"
               className="text-blue-500 underline"
             >
