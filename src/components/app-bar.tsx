@@ -16,6 +16,7 @@ import {
   Leaf,
   Link as LinkIcon,
   MoreVertical,
+  Mountain,
   Newspaper,
   Users,
 } from "lucide-react";
@@ -76,6 +77,11 @@ const MENU: MenuItem[] = [
         label: "Piccole Orme",
         href: ROUTES.PAGES_ID("piccole-orme"),
         icon: Footprints,
+      },
+      {
+        label: "Vacanze di Branco Cerchio",
+        href: ROUTES.PAGES_ID("campo-lc"),
+        icon: Mountain,
       },
     ],
   },
@@ -157,13 +163,13 @@ export const AppBar = () => {
                   data-active={item.href === pathname}
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
-                    "data-[active=true]:bg-muted/20 flex flex-row gap-2 items-center"
+                    "data-[active=true]:bg-muted/20 flex flex-row gap-2 items-center",
                   )}
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
                   {item.label}
                 </Link>
-              )
+              ),
             )}
           </div>
 
@@ -227,7 +233,7 @@ export const AppBar = () => {
                       </DropdownMenuItem>
                       {i !== MENU.length - 1 && <DropdownMenuSeparator />}
                     </>
-                  )
+                  ),
                 )}
               </DropdownMenuContent>
             </DropdownMenu>

@@ -8,6 +8,10 @@ export const ROUTES = {
     PEG: "/pages/peg",
   },
 
+  LC: {
+    CAMPO: "/lc/campo",
+  },
+
   POSTS: "/posts",
   POSTS_ID: (postId: string) => `/posts/${postId}`,
 
