@@ -1,7 +1,7 @@
 ---
 title: "Informazioni per le Vacanze di Branco Cerchio 2026"
 excerpt: "Abbiamo pubblicato le informazioni per il campo estivo 2026"
-highlight: true
+highlight: false
 ---
 
 L'ora è quasi giunta!
