@@ -4,22 +4,24 @@ import { NewsSection } from "@/components/landing_sections/news";
 import { ContactsSection } from "@/components/landing_sections/contacts";
 import { FooterSection } from "@/components/landing_sections/footer";
 import { HeroSection } from "@/components/landing_sections/hero";
+import { BrancheSection } from "@/components/landing_sections/branche";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <AppBar />
 
-      {/* HERO */}
-      <HeroSection />
+      <main>
+        <HeroSection />
 
-      <div className="flex flex-col gap-16 p-4 md:p-8">
+        <BrancheSection />
+
         <NewsSection />
 
         <RandomQuoteSection />
 
         <ContactsSection />
-      </div>
+      </main>
 
       <FooterSection />
     </div>

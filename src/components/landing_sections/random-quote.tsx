@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 const QUOTES = [
   {
     quote: "Lascia il mondo un po’ migliore di come l’hai trovato.",
@@ -84,14 +86,26 @@ const QUOTES = [
 ];
 
 export const RandomQuoteSection = () => {
-  const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+  // pick the quote after mount, so server and client render the same markup
+  const [index, setIndex] = useState<number | null>(null);
+  useEffect(() => setIndex(Math.floor(Math.random() * QUOTES.length)), []);
+  const randomQuote = QUOTES[index ?? 0];
 
   return (
-    <div className="w-full flex items-center justify-center bg-gray-100 border border-border rounded-md">
-      <div className="flex flex-col gap-2  p-4 ">
-        <div className="font-delius">{randomQuote.quote}</div>
-        <div className="text-sm text-muted-foreground font-bold text-right">{randomQuote.author}</div>
+    <section className="relative overflow-hidden bg-agesci-violet text-white">
+      <div className="agesci-stripe absolute inset-x-0 top-0 h-1" />
+      <div className="container-page flex flex-col items-center gap-6 py-16 md:py-20 text-center">
+        <span aria-hidden className="font-serif text-7xl leading-none text-agesci-yellow">
+          &ldquo;
+        </span>
+        <blockquote
+          className="max-w-3xl font-serif text-2xl md:text-4xl italic leading-snug transition-opacity duration-500 data-[ready=false]:opacity-0"
+          data-ready={index !== null}
+        >
+          {randomQuote.quote}
+        </blockquote>
+        <div className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{randomQuote.author}</div>
       </div>
-    </div>
+    </section>
   );
 };

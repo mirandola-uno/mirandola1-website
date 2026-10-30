@@ -10,5 +10,7 @@ export const CoCaProfileImage = ({ id }: { id: string }) => {
   // Use local image if it exists, otherwise fallback to DiceBear API
   const imageSrc = imageExists ? `/images/coca/${id}.jpg` : `https://api.dicebear.com/9.x/thumbs/svg?seed=${id}`;
 
-  return <Image src={imageSrc} alt={id} className="rounded-2xl size-32 object-cover" width={100} height={100} />;
+  return (
+    <Image src={imageSrc} alt={id} className="aspect-square w-full bg-muted object-cover" width={400} height={400} />
+  );
 };

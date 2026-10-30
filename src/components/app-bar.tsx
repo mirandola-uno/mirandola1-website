@@ -2,33 +2,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
-import { InstagramIcon, FacebookIcon } from "./icons";
-import { ComponentType } from "react";
+import { ComponentType, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/routes";
+import { SOCIALS } from "@/lib/socials";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
-  ChevronRight,
   FileBadge,
+  FileText,
   Footprints,
   Leaf,
   Link as LinkIcon,
-  MoreVertical,
+  Mail,
+  Menu,
   Mountain,
   Newspaper,
+  ScrollText,
   Users,
+  X,
 } from "lucide-react";
-import { Mail } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { buttonVariants } from "./ui/button";
 
 interface MenuItem {
   label: string;
@@ -60,7 +55,7 @@ const MENU: MenuItem[] = [
       {
         label: "Patto Associativo",
         href: ROUTES.PAGES_ID("patto-associativo"),
-        icon: FileBadge,
+        icon: ScrollText,
       },
       {
         label: "Contatti",
@@ -91,66 +86,91 @@ const MENU: MenuItem[] = [
     values: [
       {
         label: "Area Download",
-        icon: FileBadge,
+        icon: FileText,
         href: ROUTES.PAGES_ID("area-download"),
       },
     ],
   },
 ];
 
-const SOCIALS: {
-  label: string;
-  href: string;
-  icon: ComponentType<{ className?: string; size?: number }>;
-}[] = [
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/agesci.mirandola1/",
-    icon: InstagramIcon,
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/mirandolauno",
-    icon: FacebookIcon,
-  },
-];
+const isActive = (item: MenuItem, pathname: string): boolean =>
+  item.href === pathname || !!item.values?.some((value) => isActive(value, pathname));
+
+const navItemClass =
+  "inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground data-[active=true]:text-primary outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 export const AppBar = () => {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // close the mobile menu after navigating
+  useEffect(() => setMobileOpen(false), [pathname]);
 
   return (
-    <div className="flex flex-col">
-      <div className="bg-agesci-violet flex flex-row items-center p-4 gap-2 text-white">
-        <Image
-          src="/logo_agesci_white.webp"
-          className="size-10"
-          alt="Gruppo Scout Mirandola 1"
-          width={50}
-          height={50}
-        />
+    <header className="sticky top-0 z-40">
+      {/* UTILITY BAR */}
+      <div className="hidden md:block bg-agesci-violet-deep text-white/80 text-xs">
+        <div className="container-page flex h-9 items-center justify-between">
+          <span>Associazione Guide e Scouts Cattolici Italiani</span>
+          <div className="flex items-center gap-4">
+            <a href="mailto:mirandolauno@gmail.com" className="flex items-center gap-1.5 hover:text-white">
+              <Mail className="size-3.5" /> mirandolauno@gmail.com
+            </a>
+            <span className="h-3 w-px bg-white/20" />
+            {SOCIALS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+                className="hover:text-white"
+              >
+                <social.icon size={14} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
-        <Link href={ROUTES.HOME} className="text-sm md:text-2xl font-bold">
-          Gruppo Scout Mirandola 1
-        </Link>
+      {/* MAIN BAR */}
+      <div className="bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/85 border-b">
+        <div className="container-page flex h-16 md:h-20 items-center gap-4">
+          <Link href={ROUTES.HOME} className="flex items-center gap-3 shrink-0">
+            <Image
+              src="/logo_agesci.png"
+              className="size-10 md:size-12"
+              alt="Logo AGESCI"
+              width={96}
+              height={96}
+              priority
+            />
+            <span className="flex flex-col leading-none">
+              <span className="text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                AGESCI · Gruppo Scout
+              </span>
+              <span className="font-serif text-xl md:text-2xl font-semibold text-agesci-violet dark:text-primary">
+                Mirandola 1
+              </span>
+            </span>
+          </Link>
 
-        <div className="flex-1" />
+          <div className="flex-1" />
 
-        <div className="flex flex-row gap-2 items-center">
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex flex-row gap-2 items-center">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Menu principale">
             {MENU.map((item) =>
               item.values ? (
-                <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost">
-                      {item.icon && <item.icon className="size-4" />} {item.label} <ChevronDown />
-                    </Button>
+                <DropdownMenu key={item.label} modal={false}>
+                  <DropdownMenuTrigger className={navItemClass} data-active={isActive(item, pathname)}>
+                    {item.label} <ChevronDown className="size-4 opacity-60" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
+                  <DropdownMenuContent align="start" className="min-w-60 p-1.5">
                     {item.values.map((value) => (
-                      <DropdownMenuItem key={value.label} className="cursor-pointer">
-                        <Link href={value.href ?? ""} className="flex flex-row gap-2 items-center">
-                          {value.icon && <value.icon className="size-4" />} {value.label}
+                      <DropdownMenuItem key={value.label} asChild className="cursor-pointer gap-3 py-2">
+                        <Link href={value.href ?? ""}>
+                          {value.icon && <value.icon className="size-4 text-primary" />}
+                          {value.label}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -160,88 +180,85 @@ export const AppBar = () => {
                 <Link
                   key={item.label}
                   href={item.href ?? ""}
-                  data-active={item.href === pathname}
-                  className={cn(
-                    buttonVariants({ variant: "ghost" }),
-                    "data-[active=true]:bg-muted/20 flex flex-row gap-2 items-center",
-                  )}
+                  data-active={isActive(item, pathname)}
+                  className={navItemClass}
                 >
-                  {item.icon && <item.icon className="w-4 h-4" />}
                   {item.label}
                 </Link>
               ),
             )}
-          </div>
+            <Link href={ROUTES.CONTACT} className={cn(buttonVariants(), "ml-2")}>
+              <Mail /> Contattaci
+            </Link>
+          </nav>
 
-          {SOCIALS.map((social) => {
-            const IconComponent = social.icon;
-            return (
-              <Link
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                className={buttonVariants({ variant: "ghost" })}
-              >
-                <IconComponent size={20} />
-              </Link>
-            );
-          })}
-
-          {/* MOBILE MENU */}
-          <div className="block md:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button variant="ghost" size="icon">
-                  <MoreVertical />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="min-w-56" align="start">
-                <DropdownMenuLabel>MENU</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-
-                {MENU.map((item, i) =>
-                  item.values ? (
-                    <>
-                      <DropdownMenuLabel className="flex flex-row gap-2 items-center">
-                        {item.icon && <item.icon className="size-4" />}
-                        {item.label}
-                      </DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      {item.values.map((value) => (
-                        <DropdownMenuItem
-                          key={value.label}
-                          data-active={value.href === pathname}
-                          className="data-[active=true]:bg-muted/80"
-                        >
-                          <Link href={value.href ?? ""} className="flex flex-row gap-2 items-center">
-                            {value.icon && <value.icon className="size-4" />} {value.label} <ChevronRight />
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                      {i !== MENU.length - 1 && <DropdownMenuSeparator />}
-                    </>
-                  ) : (
-                    <>
-                      <DropdownMenuItem
-                        key={item.label}
-                        data-active={item.href === pathname}
-                        className="data-[active=true]:bg-muted/80"
-                      >
-                        <Link href={item.href ?? ""} className="flex flex-row gap-2 items-center">
-                          {item.icon && <item.icon className="size-4" />} {item.label} <ChevronRight />
-                        </Link>
-                      </DropdownMenuItem>
-                      {i !== MENU.length - 1 && <DropdownMenuSeparator />}
-                    </>
-                  ),
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+          {/* MOBILE MENU TOGGLE */}
+          <button
+            type="button"
+            className="lg:hidden inline-flex size-10 items-center justify-center rounded-md hover:bg-accent"
+            aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            {mobileOpen ? <X /> : <Menu />}
+          </button>
         </div>
+
+        {/* MOBILE MENU */}
+        {mobileOpen && (
+          <nav
+            className="lg:hidden border-t max-h-[calc(100dvh-4rem)] overflow-y-auto animate-in fade-in slide-in-from-top-2"
+            aria-label="Menu principale"
+          >
+            <div className="container-page flex flex-col py-4 gap-4">
+              {MENU.map((item) =>
+                item.values ? (
+                  <div key={item.label} className="flex flex-col gap-1">
+                    <div className="px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      {item.label}
+                    </div>
+                    {item.values.map((value) => (
+                      <Link
+                        key={value.label}
+                        href={value.href ?? ""}
+                        data-active={value.href === pathname}
+                        className={cn(navItemClass, "text-base data-[active=true]:bg-accent")}
+                      >
+                        {value.icon && <value.icon className="size-4 text-primary" />}
+                        {value.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href ?? ""}
+                    data-active={item.href === pathname}
+                    className={cn(navItemClass, "text-base data-[active=true]:bg-accent")}
+                  >
+                    {item.icon && <item.icon className="size-4 text-primary" />}
+                    {item.label}
+                  </Link>
+                ),
+              )}
+              <div className="flex items-center gap-2 border-t pt-4">
+                {SOCIALS.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({ variant: "outline", size: "sm" })}
+                  >
+                    <social.icon size={16} /> {social.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </nav>
+        )}
       </div>
-      <div className="h-1 w-full bg-mirandola-uno-blue" />
-      <div className="h-1 w-full bg-mirandola-uno-yellow" />
-    </div>
+      <div className="agesci-stripe h-1" />
+    </header>
   );
 };

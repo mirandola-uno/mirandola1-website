@@ -16,8 +16,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-delius: "DeliusSwashCaps", cursive;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -48,12 +48,15 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface: var(--surface);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
   --color-agesci-violet: var(--agesci-violet);
+  --color-agesci-violet-deep: var(--agesci-violet-deep);
+  --color-agesci-violet-soft: var(--agesci-violet-soft);
   --color-agesci-yellow: var(--agesci-yellow);
   --color-agesci-green: var(--agesci-green);
   --color-agesci-red: var(--agesci-red);
@@ -63,101 +66,120 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.75rem;
 
+  /* AGESCI palette */
   --agesci-violet: #462678;
+  --agesci-violet-deep: #2c1650;
+  --agesci-violet-soft: #f1ecf8;
   --agesci-yellow: #fdc500;
   --agesci-green: #188d37;
   --agesci-red: #da1919;
 
   --mirandola-uno-blue: #0069d1;
   --mirandola-uno-yellow: var(--agesci-yellow);
+
+  --background: #fbfaf8;
+  --foreground: #1d1730;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #1d1730;
+  --popover: #ffffff;
+  --popover-foreground: #1d1730;
+  --primary: var(--agesci-violet);
+  --primary-foreground: #ffffff;
+  --secondary: var(--agesci-violet-soft);
+  --secondary-foreground: var(--agesci-violet);
+  --muted: #f2f0f4;
+  --muted-foreground: #615a72;
+  --accent: var(--agesci-violet-soft);
+  --accent-foreground: var(--agesci-violet);
+  --destructive: var(--agesci-red);
+  --border: #e6e2ec;
+  --input: #e6e2ec;
+  --ring: #8b6cc0;
+  --chart-1: var(--agesci-violet);
+  --chart-2: var(--agesci-yellow);
+  --chart-3: var(--agesci-green);
+  --chart-4: var(--agesci-red);
+  --chart-5: var(--mirandola-uno-blue);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1d1730;
+  --sidebar-primary: var(--agesci-violet);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--agesci-violet-soft);
+  --sidebar-accent-foreground: var(--agesci-violet);
+  --sidebar-border: #e6e2ec;
+  --sidebar-ring: #8b6cc0;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --agesci-violet-soft: #2a2140;
 
-  --agesci-violet: #462678;
-  --agesci-yellow: #fdc500;
-  --agesci-green: #188d37;
-  --agesci-red: #da1919;
-
-  --mirandola-uno-blue: #0069d1;
-  --mirandola-uno-yellow: var(--agesci-yellow);
+  --background: #121019;
+  --foreground: #efecf5;
+  --surface: #1b1826;
+  --card: #1b1826;
+  --card-foreground: #efecf5;
+  --popover: #1b1826;
+  --popover-foreground: #efecf5;
+  --primary: #b9a2e6;
+  --primary-foreground: #1d1730;
+  --secondary: #2a2140;
+  --secondary-foreground: #d9ccf3;
+  --muted: #221e2e;
+  --muted-foreground: #a59fb4;
+  --accent: #2a2140;
+  --accent-foreground: #d9ccf3;
+  --destructive: #f05252;
+  --border: #2d2839;
+  --input: #2d2839;
+  --ring: #8b6cc0;
+  --sidebar: #1b1826;
+  --sidebar-foreground: #efecf5;
+  --sidebar-primary: #b9a2e6;
+  --sidebar-primary-foreground: #1d1730;
+  --sidebar-accent: #2a2140;
+  --sidebar-accent-foreground: #d9ccf3;
+  --sidebar-border: #2d2839;
+  --sidebar-ring: #8b6cc0;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif tracking-tight;
   }
 }
 
 @layer utilities {
   .font-delius {
     font-family: "DeliusSwashCaps", cursive;
+  }
+
+  /* Width-constrained page container shared by every section */
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 md:px-8;
+  }
+
+  /* The four AGESCI colours, used as a signature stripe */
+  .agesci-stripe {
+    background: linear-gradient(
+      to right,
+      var(--agesci-violet) 0 25%,
+      var(--agesci-yellow) 25% 50%,
+      var(--agesci-green) 50% 75%,
+      var(--agesci-red) 75% 100%
+    );
   }
 }

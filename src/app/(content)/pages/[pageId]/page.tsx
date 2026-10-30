@@ -1,4 +1,5 @@
 import DefaultLayout from "@/components/default-layout";
+import { Prose } from "@/components/prose";
 import { getAllPagesMeta, getPageData } from "@/lib/contents/pages";
 import { ROUTES } from "@/lib/routes";
 
@@ -16,15 +17,13 @@ export default async function PagePage({ params }: { params: Promise<{ pageId: s
   return (
     <DefaultLayout
       title={pageData.title ?? ""}
+      narrow
       breadcrumb={[
         { label: "Home", href: ROUTES.HOME },
         { label: pageData.title ?? "", href: ROUTES.PAGES_ID(pageData.id) },
       ]}
     >
-      <article
-        className="prose prose-lg dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: pageData.contentHtml }}
-      />
+      <Prose html={pageData.contentHtml} />
     </DefaultLayout>
   );
 }

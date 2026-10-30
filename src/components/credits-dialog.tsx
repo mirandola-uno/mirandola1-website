@@ -6,7 +6,7 @@ export const CreditsDialog = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="link" className="text-white hover:text-white/80">
+        <Button variant="link" className="h-auto p-0 text-xs text-white/60 hover:text-white">
           Credits
         </Button>
       </DialogTrigger>
@@ -18,7 +18,7 @@ export const CreditsDialog = () => {
             <Link
               href="https://github.com/mirandola-uno/mirandola1-website"
               target="_blank"
-              className="text-blue-500 underline"
+              className="text-primary underline underline-offset-4"
             >
               GitHub
             </Link>
