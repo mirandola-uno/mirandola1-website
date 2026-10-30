@@ -269,6 +269,16 @@
     "ruolo": "Pattuglia Animazione CoCa"
   },
   {
+    "id": "forapani-anna",
+    "CodiceSocio": 4,
+    "Nome": "Anna",
+    "Cognome": "Forapani",
+    "Sesso": "F",
+    "unita": "Co.Ca.",
+    "branca": "coca",
+    "ruolo": "Pattuglia Animazione CoCa"
+  },
+  {
     "id": "morini-andrea",
     "CodiceSocio": 4,
     "Nome": "Adrea",
