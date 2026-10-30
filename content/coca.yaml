@@ -1,0 +1,67 @@
+# Comunità Capi del Gruppo Scout Mirandola 1
+#
+# Ogni unità ha un nome, una branca (coca, lc, eg, rs) e l'elenco dei suoi capi,
+# nell'ordine in cui compaiono sul sito. Per ogni capo:
+#   nome, cognome, ruolo  obbligatori
+#   codice                codice censimento AGESCI (facoltativo)
+#   id                    facoltativo, solo per distinguere due omonimi
+#
+# La foto va messa in public/images/coca/<cognome>-<nome>.jpg, tutto minuscolo,
+# senza accenti e con i trattini al posto degli spazi (es. da-como-chiara.jpg).
+# Se l'id è indicato, la foto si chiama <id>.jpg. Senza foto viene mostrato un avatar.
+
+unita:
+  - nome: Co.Ca.
+    branca: coca
+    capi:
+      - { nome: Mary roselet, cognome: Fernandez, ruolo: Assistente Spirituale L/C, codice: 1354295 }
+      - { nome: Lucrezia, cognome: Baraldi, ruolo: Pattuglia Sacramenti, codice: 1183475 }
+      - { nome: Francesca, cognome: Mascherini, ruolo: Pattuglia Sacramenti, codice: 1076309 }
+      - { nome: Annamaria, cognome: Paolini, ruolo: Capo Gruppo, codice: 913382 }
+      - { nome: Giorgio, cognome: Tagliavini, ruolo: Capo Gruppo }
+      - { nome: Francesco, cognome: Cavazzuti, ruolo: Assistente Ecclesiastico, codice: 1562519 }
+      - { nome: Claudio, cognome: Zerbini, ruolo: Pattuglia Animazione CoCa, codice: 152482 }
+      - { nome: Anna, cognome: Forapani, ruolo: Pattuglia Animazione CoCa, codice: 1183488 }
+      - { nome: Andrea, cognome: Morini, ruolo: Incaricato alla FoCA di zona }
+      - { nome: Tommaso, cognome: Salici, ruolo: Incaricato alla Branca EG di Zona, codice: 1077738 }
+      - { nome: Simona, cognome: Gentilini, ruolo: Consigliere Generale, codice: 511984 }
+
+  - nome: Lupetti
+    branca: lc
+    capi:
+      - { nome: Tommaso, cognome: Razzaboni, ruolo: Capo Unità, codice: 1469946 }
+      - { nome: Giacomo, cognome: Cavicchioli, ruolo: Aiuto Capo Unità, codice: 913367 }
+      - { nome: Marta, cognome: Sgarbi, ruolo: Aiuto Capo Unità, codice: 1250571 }
+      - { nome: Chiara, cognome: Da Como, ruolo: Aiuto Capo Unità, codice: 1508336 }
+
+  - nome: Coccinelle
+    branca: lc
+    capi:
+      - { nome: Olivia, cognome: Tonengo, ruolo: Capo Unità, codice: 1217159 }
+      - { nome: Giulia, cognome: Luppi, ruolo: Aiuto Capo Unità, codice: 1293715, id: luppi-giulia-jr }
+      - { nome: Pietro, cognome: Cioli puviani, ruolo: Aiuto Capo Unità, codice: 1052580 }
+      - { nome: Caterina, cognome: Galavotti, ruolo: Aiuto Capo Unità }
+      - { nome: Alice, cognome: Bellesia, ruolo: Aiuto Capo Unità, codice: 1183478 }
+
+  - nome: Reparto Tramontana
+    branca: eg
+    capi:
+      - { nome: Gemma, cognome: Bresciani, ruolo: Capo Reparto, codice: 1293706 }
+      - { nome: Francesco, cognome: Gallini, ruolo: Capo Reparto, codice: 1325388 }
+      - { nome: Francesca, cognome: Basso, ruolo: Aiuto Capo Reparto }
+      - { nome: Davide, cognome: Cavicchioli, ruolo: Aiuto Capo Reparto, codice: 913368 }
+
+  - nome: Reparto Aquile Randagie
+    branca: eg
+    capi:
+      - { nome: Pietro, cognome: Menotti, ruolo: Capo Reparto, codice: 1293717 }
+      - { nome: Emma, cognome: Golinelli, ruolo: Capo Reparto, codice: 1354786 }
+      - { nome: Francesco, cognome: Gavioli, ruolo: Aiuto Capo Reparto, codice: 1183491 }
+      - { nome: Francesco, cognome: Galavotti, ruolo: Aiuto Capo Reparto, codice: 1325387 }
+
+  - nome: Clan Fuoco
+    branca: rs
+    capi:
+      - { nome: Anita, cognome: Cappello, ruolo: Maestra dei Novizi, codice: 1325386 }
+      - { nome: Eleonora, cognome: Baraldi, ruolo: Capo Fuoco, codice: 1076307 }
+      - { nome: Antonio, cognome: Puorro, ruolo: Capo Clan, codice: 1045948 }
