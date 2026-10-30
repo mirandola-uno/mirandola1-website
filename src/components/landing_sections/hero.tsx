@@ -25,11 +25,6 @@ export const HeroSection = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-agesci-violet-deep via-agesci-violet/90 to-agesci-violet/50" />
 
       <div className="container-page flex min-h-[70vh] md:min-h-[78vh] flex-col justify-center gap-8 py-20">
-        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] backdrop-blur">
-          <span className="size-2 rounded-full bg-agesci-yellow" />
-          <span className="hidden sm:inline">AGESCI ·</span> Gruppo Scout Mirandola 1
-        </div>
-
         <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.05]">
           Ottant&apos;anni di{" "}
           {KEYWORDS.map((keyword, i) => (
