@@ -31,7 +31,7 @@
   },
   {
     "id": "dacomo-chiara",
-    "CodiceSocio": 1,
+    "CodiceSocio": 1508336,
     "Nome": "Chiara",
     "Cognome": "Da Como",
     "Sesso": "F",
@@ -50,7 +50,7 @@
     "branca": "lc"
   },
   {
-    "CodiceSocio": 1,
+    "CodiceSocio": 1293715,
     "Nome": "Giulia",
     "Cognome": "Luppi",
     "Sesso": "F",
@@ -101,7 +101,7 @@
   },
   {
     "id": "bresciani-gemma",
-    "CodiceSocio": 2,
+    "CodiceSocio": 1293706,
     "Nome": "Gemma",
     "Cognome": "Bresciani",
     "Sesso": "F",
@@ -111,7 +111,7 @@
   },
   {
     "id": "gallini-francesco",
-    "CodiceSocio": 3,
+    "CodiceSocio": 1325388,
     "Nome": "Francesco",
     "Cognome": "Gallini",
     "Sesso": "M",
@@ -141,7 +141,7 @@
   },
   {
     "id": "menotti-pietro",
-    "CodiceSocio": 5,
+    "CodiceSocio": 1293717,
     "Nome": "Pietro",
     "Cognome": "Menotti",
     "Sesso": "M",
@@ -151,7 +151,7 @@
   },
   {
     "id": "golinelli-emma",
-    "CodiceSocio": 5,
+    "CodiceSocio": 1354786,
     "Nome": "Emma",
     "Cognome": "Golinelli",
     "Sesso": "F",
@@ -171,7 +171,7 @@
   },
   {
     "id": "galavotti-francesco",
-    "CodiceSocio": 1,
+    "CodiceSocio": 1325387,
     "Nome": "Francesco",
     "Cognome": "Galavotti",
     "Sesso": "M",
@@ -179,7 +179,6 @@
     "ruolo": "Aiuto Capo Reparto",
     "branca": "eg"
   },
-
   {
     "id": "cappello-anita",
     "CodiceSocio": 1325386,
@@ -190,7 +189,6 @@
     "ruolo": "Maestra dei Novizi",
     "branca": "rs"
   },
-
   {
     "id": "baraldi-eleonora",
     "CodiceSocio": 1076307,
@@ -270,7 +268,7 @@
   },
   {
     "id": "forapani-anna",
-    "CodiceSocio": 4,
+    "CodiceSocio": 1183488,
     "Nome": "Anna",
     "Cognome": "Forapani",
     "Sesso": "F",
@@ -281,7 +279,7 @@
   {
     "id": "morini-andrea",
     "CodiceSocio": 4,
-    "Nome": "Adrea",
+    "Nome": "Andrea",
     "Cognome": "Morini",
     "Sesso": "M",
     "unita": "Co.Ca.",
